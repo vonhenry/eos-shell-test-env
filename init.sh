@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONTRACTS_DIR=/Code/github.com/vchengsong/eosio.contracts/build
+CONTRACTS_DIR=/Code/github.com/vonhenry/eosio.contracts/build
 
 WALLET_DIR=/Users/song/tmp/eosio/eosio-wallet
 
