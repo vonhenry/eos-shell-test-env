@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#repo=vonhenry/eosio.contracts
-repo=boscore/bos.contracts
+repo=vonhenry/eosio.contracts
+#repo=boscore/bos.contracts
 
 CONTRACTS_DIR=/Code/github.com/${repo}/build
 

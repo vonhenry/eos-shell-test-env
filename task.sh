@@ -2,7 +2,7 @@
 
 . ./init_system_contracts.sh
 
-. ./task_pegtoken_test.sh
+. ./task_ibc_test.sh
 
 
 
