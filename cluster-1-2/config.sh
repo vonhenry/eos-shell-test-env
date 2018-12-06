@@ -111,6 +111,15 @@ read -d '' loggingbios << EOF
       "appenders": [
         "stderr"
       ]
+    },
+    {
+      "name": "net_plugin_impl",
+      "level": "debug",
+      "enabled": true,
+      "additivity": false,
+      "appenders": [
+        "stderr"
+      ]
     }
   ]
 }
