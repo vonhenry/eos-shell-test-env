@@ -1,26 +1,14 @@
 #!/bin/bash
 
-#
-# This test ensures that connections with the same p2p-server-address
-# are not closed as redundant.
-#
-
-###############################################################
-# Extracts staging directory and launchs cluster.
-###############################################################
-
-
 . ./init.sh
 . ./config.sh
 
-
-
 cluster_init(){
-    killall nodeos 2>/dev/null
+    cluster_clear
 
-    rm -rf staging
-    rm -rf etc/eosio/node_*
-    rm -rf var/lib
+#    rm -rf staging
+#    rm -rf etc/eosio/node_*
+#    rm -rf var/lib
 
     cName=config.ini
     lName=logging.json
@@ -32,7 +20,7 @@ cluster_init(){
     echo "$loggingbios" > $path/$lName
     echo "$genesis"     > $path/$gName
 
-    for i in `seq -w 00 10`; do
+    for i in `seq -w 00 25`; do
         path=staging/etc/eosio/node_$i
         mkdir -p $path
         c=config$i  && echo "${!c}" > $path/$cName
@@ -44,10 +32,14 @@ cluster_init(){
 }
 
 pnodes=1
-total_nodes=11
+total_nodes=25
 delay=1
 
-cluster_begin(){
+cluster_dump(){
+    $eosio_launcher -p $pnodes -n $total_nodes --nogen -o topology
+}
+
+cluster_start(){
     $eosio_launcher -i $now -p $pnodes -n $total_nodes --nogen -d $delay
 
     sleep 5
@@ -61,7 +53,7 @@ cluster_begin(){
 
     b5idbios=`$cleos -u http://127.0.0.1:8888 get block 5 | grep "^ *\"id\""`
 
-    for i in `seq -w 00 10`; do
+    for i in `seq -w 00 24`; do
         echo -- check node $i --
         b5id=`$cleos -u http://127.0.0.1:88${i} get block 5 | grep "^ *\"id\""`
         if [ "$b5idbios" != "$b5id" ]; then
@@ -78,38 +70,42 @@ cluster_begin(){
 }
 
 
-
-cluster_start(){
-
-
+cluster_down(){
+    $eosio_launcher --down 01
+#    killall nodeos
+#    echo stop--
 }
 
-cluster_stop(){
-    eosio_launcher -k 15
-    killall nodeos
-    echo stop--
+
+cluster_bounce(){
+
+    echo
 }
 
 cluster_clear(){
-    rm *.json *.dot *.ini  2>/dev/null
+    killall nodeos 2>/dev/null
+    rm *.json *.dot *.ini topology* 2>/dev/null
     rm -rf staging
     rm -rf etc/eosio/node_*
     rm -rf var/lib
-
-    echo -- clear --
 }
 
 
-
-
 if [ "$#" -ne 1 ];then
-	echo "usage: cluster.sh init|begin|start|stop|clear"
+	echo "usage: cluster.sh init|start|down|bounce|clear"
 	exit 0
 fi
 
-if [ "$1" == "init"  ];then cluster_init;fi
-if [ "$1" == "begin" ];then cluster_begin;fi
-if [ "$1" == "stop"  ];then cluster_stop;fi
-if [ "$1" == "clear" ];then cluster_clear;fi
+
+case "$1"
+in
+    "init"  )   cluster_init;;
+    "start" )   cluster_start;;
+    "down"  )   cluster_down;;
+    "bounce")   cluster_bounce;;
+    "clear" )   cluster_clear;;
+    "dump"  )   cluster_dump;;
+    *) echo "usage: cluster.sh init|start|down|bounce|clear|dump" ;;
+esac
 
 

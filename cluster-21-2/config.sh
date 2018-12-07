@@ -128,14 +128,148 @@ producer-name = producer111k
 private-key = ['EOS8Ab17X1unSfw32TizCTqJBmrUHZ5c8YvR6UuYURiKLFeuEySBP','5JQLTMiEFTvwzNor68c1eoAUHxKzLLSCik9fN1fEsekhKsjXMog']
 EOF
 
+read -d '' config11 << EOF
+http-server-address = 127.0.0.1:8811
+p2p-listen-endpoint = 0.0.0.0:9811
+producer-name = producer111l
+private-key = ['EOS8hAoDAqQLXX7ch5nDJxLeoUiQ2hq2SumW6sLHKW2nwjmcb1iGE','5Hr5Am9NnKFhNa5G135xwbRzFg6N9tqkBxTecwt51Wu9F9r9nou']
+EOF
+read -d '' config12 << EOF
+http-server-address = 127.0.0.1:8812
+p2p-listen-endpoint = 0.0.0.0:9812
+producer-name = producer111m
+private-key = ['EOS8B6qCUS2GxiuAY6cUprhaxrN7JkYsJMC4qfCRhC9TewasU7sHb','5Jz6WiYj7akvimGZpjfy7pM4h52fr4318ZDZEGeZqm2EYjV6Pxf']
+EOF
+read -d '' config13 << EOF
+http-server-address = 127.0.0.1:8813
+p2p-listen-endpoint = 0.0.0.0:9813
+producer-name = producer111n
+private-key = ['EOS88P2JvJzYooCbNs3HriA6FUD5zxj1hPykG8T2i4fXtav3G8PS3','5HrBcHUXMrfa9LaY5BgnwVYRDacfhqaSReqQ99KvRTRYZ9v3DcB']
+EOF
+read -d '' config14 << EOF
+http-server-address = 127.0.0.1:8814
+p2p-listen-endpoint = 0.0.0.0:9814
+producer-name = producer111o
+private-key = ['EOS788n77BLxcsM4sE5Mi42uKmBxC6ALVkyAoyPAmiAJm1bcH1hGR','5J8if85n9Uzxfp3MdHmLEEgDrN4jvUL164cLKJ6KqjcrdQ2YoTT']
+EOF
+read -d '' config15 << EOF
+http-server-address = 127.0.0.1:8815
+p2p-listen-endpoint = 0.0.0.0:9815
+producer-name = producer111p
+private-key = ['EOS84g5TApfPqwLe8LTTDuypyhvi2Cf4ZpVvm4PHTxczMaL8LEVf5','5JVouLJMLLm3aNZqpYVjbHpbuTifc1b8gfkeWTmB5HFecLNmie1']
+EOF
+read -d '' config16 << EOF
+http-server-address = 127.0.0.1:8816
+p2p-listen-endpoint = 0.0.0.0:9816
+producer-name = producer111q
+private-key = ['EOS6HEqdDp9T5To52idjw7cjzEYhRZ1CZxy5DnhNgFY9JH3naBhAc','5JtKVvxEkfR7pzYJxtnfaNLbwCuK34MrioMch5o2VfxYBd3Prbn']
+EOF
+read -d '' config17 << EOF
+http-server-address = 127.0.0.1:8817
+p2p-listen-endpoint = 0.0.0.0:9817
+producer-name = producer111r
+private-key = ['EOS6g73HDDHaW7X8jAbBBiGjkRxdqmfruBY4ST9FKr6z2BxgUGauV','5KFFpvN3Sc4MCUpQWuiEdsGSCTvckVwCxEU985s9AZVA4gAdBUw']
+EOF
+read -d '' config18 << EOF
+http-server-address = 127.0.0.1:8818
+p2p-listen-endpoint = 0.0.0.0:9818
+producer-name = producer111s
+private-key = ['EOS5f3DEYdmQ22cSFMrWKyHhLYKvHEpwppSEf4tKpQWzJx4CrJcKi','5J2a8k37qBhmZHmvuBqU6mxCtNtdnw3tzyGLpC6WxhV5VVDBzSF']
+EOF
+read -d '' config19 << EOF
+http-server-address = 127.0.0.1:8819
+p2p-listen-endpoint = 0.0.0.0:9819
+producer-name = producer111t
+private-key = ['EOS63acPsuJy2Rn1MbXpGz78uuzfF6frj3jWeyykjkpuSBjy1HMtb','5KhWdLjQFibha1QaMjPZoFL2jyJJSP5HeBEdwDkbJBpFWBMYiUE']
+EOF
+read -d '' config20 << EOF
+http-server-address = 127.0.0.1:8820
+p2p-listen-endpoint = 0.0.0.0:9820
+producer-name = producer111u
+private-key = ['EOS6JNYvKigRgQemwW6aTS2qZNHjEHsRsuLTo2TVA935TtcaPD6xU','5J237MB3QfkEczSR9Kthqe73sQdufi7ZXFcaQJwLXaXCAAG3z9m']
+EOF
+read -d '' config21 << EOF
+http-server-address = 127.0.0.1:8821
+p2p-listen-endpoint = 0.0.0.0:9821
+producer-name = producer111v
+private-key = ['EOS78V2E4V4h3txkZ6fQvqXxYez7qzQMTqqdbxS33dBkPbD9kwHfR','5J4gjCRmFtezLMjR12EmTWLvTUVeTTDM4bi4L1osLTZQiShorMo']
+EOF
+read -d '' config22 << EOF
+http-server-address = 127.0.0.1:8822
+p2p-listen-endpoint = 0.0.0.0:9822
+producer-name = producer111w
+private-key = ['EOS7G3KbYdANRcF64rTeyR8j39KaVQ4EGGPK189vHvQazoPF8zgQX','5HwEp79MKNz81nDDZz4zmFzgm7jBcH2nsCLv5ucLvcV3CMztgLn']
+EOF
+read -d '' config23 << EOF
+http-server-address = 127.0.0.1:8823
+p2p-listen-endpoint = 0.0.0.0:9823
+producer-name = producer111x
+private-key = ['EOS7Ckx456UiQNrn9iGbLA4e37ZM7bxuoVtkEcxBza11UcSnL2SyY','5JnDiMJK3KThbPaDxan1FLmDCXFh6VXcwqdNH1oCVzDYF4mZqjb']
+EOF
+read -d '' config24 << EOF
+http-server-address = 127.0.0.1:8824
+p2p-listen-endpoint = 0.0.0.0:9824
+producer-name = producer111y
+private-key = ['EOS7uKfBKEVTuXa2jWLjsrFpVdsfSeJ5cKvfNL5t9thMhFKLNmPNy','5JkESzQ7FF934VeJazRYjQrE9g6geVVpExEEvpwR7QmXtaHmAUT']
+EOF
+read -d '' config25 << EOF
+http-server-address = 127.0.0.1:8825
+p2p-listen-endpoint = 0.0.0.0:9825
+producer-name = producer111z
+private-key = ['EOS5EDycPyDPvEg5VuFn1iBZdRpDhP81dkfPFaXj7RMGk7to945ne','5KXjyXjkrjJpPMWFRSRmsv5tUA9uB5KeSMPLXLUpNEMd2FvLGc8']
+EOF
+read -d '' config26 << EOF
+http-server-address = 127.0.0.1:8826
+p2p-listen-endpoint = 0.0.0.0:9826
+producer-name = producer112a
+private-key = ['EOS6GSCJRSFPBG4nhXFxyE75FNBL18MpxzQc5gAGUjT8ipnfahGeS','5Ka1ihV29UWkjLUFmjqz85DAD81MZ9LLg8hQpNVNXfF9FA9ZFoM']
+EOF
+read -d '' config27 << EOF
+http-server-address = 127.0.0.1:8827
+p2p-listen-endpoint = 0.0.0.0:9827
+producer-name = producer112b
+private-key = ['EOS817hVJSH2zGsTfXP9CynNRYqdntUQTPy5o82NpqzGCooYsx4jP','5JxowrZcMMJ4iZoJkTnhKt4pSvVQsLacY34AeY7oc6XZ1ZfK5Fi']
+EOF
+read -d '' config28 << EOF
+http-server-address = 127.0.0.1:8828
+p2p-listen-endpoint = 0.0.0.0:9828
+producer-name = producer112c
+private-key = ['EOS8fdPxQhHUo1oBPiSjFLRxbKdUmV4gmAjsPHAxPDmHZHk2SgbHd','5J6u5bqfyfmKUeQvtoorkGPTKmJzfhkpc2Pj15mJvK8qc8aAvAg']
+EOF
+read -d '' config29 << EOF
+http-server-address = 127.0.0.1:8829
+p2p-listen-endpoint = 0.0.0.0:9829
+producer-name = producer112c
+private-key = ['EOS5uHCMZbf5f5XxaYA4mNk1eL73VUovcNUWpno63aNLFMD6etqEG','5KHqh8qeWfbztaB4HJ31gCGATxcDp29ZVMzSpLBbWbA2DGhQPjf']
+EOF
+read -d '' config30 << EOF
+http-server-address = 127.0.0.1:8830
+p2p-listen-endpoint = 0.0.0.0:9830
+producer-name = producer112e
+private-key = ['EOS6BeucfYVwJKyNMQC8EEs8PE2pbdGSfqyheV6kFqLt15TWn2xxs','5JAJ38sS2bqx6awVaPFDRXwW4TXUbV699ENbw8DBjnv5CHb2hmm']
+EOF
 
 
 
-
-
-
-
-
+#   生成上面配置的脚步
+#
+#	new_keys(){
+#	    str=`cleos create key --to-console`
+#	    pri_key=`echo $str | cut -d' ' -f 3`
+#	    pub_key=`echo $str | cut -d' ' -f 6`
+#	}
+#
+#    generate(){
+#        for i in `seq 10 30`; do
+#            new_keys
+#            echo "read -d '' config${i} << EOF"
+#            echo http-server-address = 127.0.0.1:88${i}
+#            echo p2p-listen-endpoint = 0.0.0.0:98${i}
+#            echo producer-name = producer111
+#            echo private-key = [\'"$pub_key"\',\'"$pri_key"\']
+#            echo EOF
+#        done
+#    }
 
 
 
