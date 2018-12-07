@@ -71,7 +71,7 @@ cluster_start(){
 
 
 cluster_down(){
-    $eosio_launcher --down 01
+    $eosio_launcher -k 15
 #    killall nodeos
 #    echo stop--
 }

@@ -7,20 +7,48 @@ echo  -------------------- IBC TEST ------------------------
 
 create_some_account(){
     create_one ${contract_acnt}
-    for i in 1 2 3; do create_one eosaccount2${i}; done
+
+    create_one eosvoterbig1
+    cleos transfer eosio eosvoterbig1 "200000100.0000 EOS"
+    cleos system delegatebw eosvoterbig1 eosvoterbig1 "100000000.0000 EOS"  "100000000.0000 EOS"
+
+    for i in a b c d e f g h i j; do
+        name=eosvoter111${i}
+        create_one ${name}
+        cleos transfer eosio ${name} "10000100.0000 EOS"
+        cleos system delegatebw ${name}  ${name}  "5000000.0000 EOS"  "5000000.0000 EOS"
+    done
 }
 create_some_account
 
+. ./bp_keys.sh
 
 create_register_producers(){
-    for i in a b c d e f g h i g k l m n o p q r s t u v w x y z; do create_one producer11${i}; done
-    for i in a b c d e f g h i g k l m n o p q r s t u v w x y z; do create_one producer12${i}; done
+    bunch=$1 # 1 or 2
+
+    for i in a b c d e f g h i j k l m n o p q r s t u v w x y z; do
+        sfx=${bunch}${i}
+        bpname=producer11${sfx} && create_one ${bpname}
+        var=p${sfx}_pri && import_key ${!var}
+        var=p${sfx}_pub && cleos system regproducer ${bpname} ${!var} http://${bpname}.io
+    done
 }
-create_producers
+create_register_producers 1
+create_register_producers 2
 
-set_producers(){
 
+vote_producers(){
+p=producer11
+producers1="${p}1a ${p}1b ${p}1c ${p}1d ${p}1e ${p}1f ${p}1g ${p}1h ${p}1i ${p}1j
+           ${p}1k ${p}1l ${p}1m ${p}1n ${p}1o ${p}1p ${p}1q ${p}1r ${p}1s ${p}1t ${p}1u"
 
+producers2="${p}2a ${p}2b ${p}2c ${p}1d ${p}1e ${p}1f ${p}1g ${p}1h ${p}1i ${p}1j
+           ${p}1k ${p}1l ${p}1m ${p}1n ${p}1o ${p}1p ${p}1q ${p}1r ${p}1s ${p}1t ${p}1u"
+
+producers3="${p}2x ${p}2y ${p}2z ${p}1d ${p}1e ${p}1f ${p}1g ${p}1h ${p}1i ${p}1j
+           ${p}1k ${p}1l ${p}1m ${p}1n ${p}1o ${p}1p ${p}1q ${p}1r ${p}1s ${p}1t ${p}1u"
+
+cleos system voteproducer prods eosvoterbig1 ${producers1}
 
 }
 
@@ -32,7 +60,7 @@ set_producers(){
 set_contract(){
     cleos set contract ${contract_acnt} ${CONTRACTS_DIR}/${contract_folder} -x 1000 -p ${contract_acnt}
 }
-set_contract
+#set_contract
 
 
 
