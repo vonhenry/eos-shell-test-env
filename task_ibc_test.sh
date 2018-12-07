@@ -7,14 +7,35 @@ echo  -------------------- IBC TEST ------------------------
 
 create_some_account(){
     create_one ${contract_acnt}
-    for i in 1 2 3; do create_one eosaccount1${i}; done
+    for i in 1 2 3; do create_one eosaccount2${i}; done
 }
 create_some_account
+
+
+create_register_producers(){
+    for i in a b c d e f g h i g k l m n o p q r s t u v w x y z; do create_one producer11${i}; done
+    for i in a b c d e f g h i g k l m n o p q r s t u v w x y z; do create_one producer12${i}; done
+}
+create_producers
+
+set_producers(){
+
+
+
+}
+
+
+
+
+
 
 set_contract(){
     cleos set contract ${contract_acnt} ${CONTRACTS_DIR}/${contract_folder} -x 1000 -p ${contract_acnt}
 }
 set_contract
+
+
+
 
 action_test(){
 #    action_ps_test
