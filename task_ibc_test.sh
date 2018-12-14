@@ -33,8 +33,8 @@ create_register_producers(){
         var=p${sfx}_pub && cleos system regproducer ${bpname} ${!var} http://${bpname}.io
     done
 }
-create_register_producers 1
-create_register_producers 2
+#create_register_producers 1
+#create_register_producers 2
 
 
 vote_producers(){
@@ -57,15 +57,60 @@ cleos system voteproducer prods eosvoterbig1 ${producers1}
 set_contract(){
     cleos set contract ${contract_acnt} ${CONTRACTS_DIR}/${contract_folder} -x 1000 -p ${contract_acnt}
 }
-#set_contract
+set_contract
 
 
 
 
 action_test(){
-#    action_ps_test
     echo
 }
+
+action_setglobal_test(){
+    echo
+}
+
+
+action_chaininit_test(){
+    header='"93c03b4710430857219de8ad0000000059af1f1d623999aeb9dc4e743f268009f52ccc5828ce80bf0a33342a1c4f00000000000000000000000000000000000000000000000000000000000000001f2b8a2ff5a019151d776643542711120c868e2fb7038d71372378c21b3059f8030000000000002018e4fa79bc85e958bf126dde9c81942eaec9a2fc424892fde811efe406f9cf515c98bac97cf3c77dba27d00b13835ef1b778b3be8caa5f0f5ab05964cb7be031"'
+    active_schedule='{"version":3,"producers":[{"producer_name":"producer111d","block_signing_key":"EOS7R6woULngUEGTSZiwU6bVTQ9S3QL7PNWUkHsHzQN4ZK8Sd5Z4S"},{"producer_name":"producer111e","block_signing_key":"EOS5jurQAScHY15Dar97ynuafyoYWnZZQwtrDihe72oHJFiEMT9qE"},{"producer_name":"producer111f","block_signing_key":"EOS5CcunRbAZHtwJz2DdPqFx7sMMhnZysChYvK5VXw63jXkkTyKx9"},{"producer_name":"producer111g","block_signing_key":"EOS8RtT5pitvw1ohGWEmd8PuUd2WU8r3s1wSayb3JqybEL8qGHVAN"},{"producer_name":"producer111h","block_signing_key":"EOS7emRzu58rH3c5y9CC5R3yeYMtTZTyzNEmGUkENNr1hmp8CJQSP"},{"producer_name":"producer111i","block_signing_key":"EOS5nEcaoGe6sSTR5XSkt825qMrGhYiZMyYqNnSW45yPC6adGxaBQ"},{"producer_name":"producer111j","block_signing_key":"EOS5TDZEjtqfiqiZdDikgQQjc2C3ZeFijyzpSFSLX1AmNGWbKAtpv"},{"producer_name":"producer111k","block_signing_key":"EOS8Ab17X1unSfw32TizCTqJBmrUHZ5c8YvR6UuYURiKLFeuEySBP"},{"producer_name":"producer111l","block_signing_key":"EOS8hAoDAqQLXX7ch5nDJxLeoUiQ2hq2SumW6sLHKW2nwjmcb1iGE"},{"producer_name":"producer111m","block_signing_key":"EOS8B6qCUS2GxiuAY6cUprhaxrN7JkYsJMC4qfCRhC9TewasU7sHb"},{"producer_name":"producer111n","block_signing_key":"EOS88P2JvJzYooCbNs3HriA6FUD5zxj1hPykG8T2i4fXtav3G8PS3"},{"producer_name":"producer111o","block_signing_key":"EOS788n77BLxcsM4sE5Mi42uKmBxC6ALVkyAoyPAmiAJm1bcH1hGR"},{"producer_name":"producer111p","block_signing_key":"EOS84g5TApfPqwLe8LTTDuypyhvi2Cf4ZpVvm4PHTxczMaL8LEVf5"},{"producer_name":"producer111q","block_signing_key":"EOS6HEqdDp9T5To52idjw7cjzEYhRZ1CZxy5DnhNgFY9JH3naBhAc"},{"producer_name":"producer111r","block_signing_key":"EOS6g73HDDHaW7X8jAbBBiGjkRxdqmfruBY4ST9FKr6z2BxgUGauV"},{"producer_name":"producer111s","block_signing_key":"EOS5f3DEYdmQ22cSFMrWKyHhLYKvHEpwppSEf4tKpQWzJx4CrJcKi"},{"producer_name":"producer111t","block_signing_key":"EOS63acPsuJy2Rn1MbXpGz78uuzfF6frj3jWeyykjkpuSBjy1HMtb"},{"producer_name":"producer111u","block_signing_key":"EOS6JNYvKigRgQemwW6aTS2qZNHjEHsRsuLTo2TVA935TtcaPD6xU"},{"producer_name":"producer112a","block_signing_key":"EOS6GSCJRSFPBG4nhXFxyE75FNBL18MpxzQc5gAGUjT8ipnfahGeS"},{"producer_name":"producer112b","block_signing_key":"EOS817hVJSH2zGsTfXP9CynNRYqdntUQTPy5o82NpqzGCooYsx4jP"},{"producer_name":"producer112c","block_signing_key":"EOS8fdPxQhHUo1oBPiSjFLRxbKdUmV4gmAjsPHAxPDmHZHk2SgbHd"}]}'
+    blockroot_merkle='{"_active_nodes":["000059af1f1d623999aeb9dc4e743f268009f52ccc5828ce80bf0a33342a1c4f","c40be94236036db025dcb2f79e7afd99593b4ebae1ea6521bddbf7a0ef159068","c3cb5eb444590e07c1fa361c062aa63b17cf3a47ac8f98454757c13ffc3bbcf3","46ecb4f71e3fcb181542d63ef5ebf2087110c185da207af148c5ec4de5d21d77","9b284d14d05cf112994d6201f0fad35853e98f6cdfdab54ef53c4954d8f0cc12","82f969886bd440a1cff601ba3ba33bb5f85b06a10f593c8dd8264ae4d95b6ca7","70cbd3df264250a7bd5500b7f51163dea61de4a14e8326edb5f3306ed27d589c","c80ac17289f9ff5e0df6374fa31a72520c3862b4caf491e37d4a2a554fa92b83","5ac4093e7fa391971285d3a29eaf005eb69f2307b7e41ddd3b0849a58b50ff78","d74b3921a9b333d27053e2d8c6ad4d10b0bac8dcb59f07c3e749512591f15780","bf95c5f618796d9c0be926adc5aacd4b74de8e46446b036acc8b011aba0a8aad"],"_node_count":22959}'
+
+    cleos push action ${contract_acnt}  chaininit "[ $header,$active_schedule,$blockroot_merkle ]"  -p  ${contract_acnt}
+    cleos get table  ${contract_acnt}  ${contract_acnt} chaindb
+    cleos get table  ${contract_acnt}  ${contract_acnt} prodsches
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 action_chaininit_test(){
 header='"93c03b4710430857219de8ad0000000059af1f1d623999aeb9dc4e743f268009f52ccc5828ce80bf0a33342a1c4f00000000000000000000000000000000000000000000000000000000000000001f2b8a2ff5a019151d776643542711120c868e2fb7038d71372378c21b3059f8030000000000002018e4fa79bc85e958bf126dde9c81942eaec9a2fc424892fde811efe406f9cf515c98bac97cf3c77dba27d00b13835ef1b778b3be8caa5f0f5ab05964cb7be031"'

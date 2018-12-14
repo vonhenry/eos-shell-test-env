@@ -10,3 +10,5 @@ nodeos -e -p eosio -d /Users/song/tmp/eosio/data --config-dir /Users/song/tmp/eo
     --plugin eosio::chain_api_plugin --plugin eosio::producer_plugin  \
     --plugin eosio::producer_api_plugin --plugin eosio::history_api_plugin  \
     --contracts-console  --max-transaction-time 1000
+
+
