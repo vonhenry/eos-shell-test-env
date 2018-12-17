@@ -70,6 +70,10 @@ action_setglobal_test(){
     echo
 }
 
+action_sectionadd_test(){
+    cleos push action ${contract_acnt}  sectionadd "[1,11,111]"  -p ${contract_acnt}
+    cleos get table  ${contract_acnt}  ${contract_acnt} rmtlcltrxs
+}
 
 action_chaininit_test(){
     header='"93c03b4710430857219de8ad0000000059af1f1d623999aeb9dc4e743f268009f52ccc5828ce80bf0a33342a1c4f00000000000000000000000000000000000000000000000000000000000000001f2b8a2ff5a019151d776643542711120c868e2fb7038d71372378c21b3059f8030000000000002018e4fa79bc85e958bf126dde9c81942eaec9a2fc424892fde811efe406f9cf515c98bac97cf3c77dba27d00b13835ef1b778b3be8caa5f0f5ab05964cb7be031"'

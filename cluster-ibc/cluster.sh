@@ -41,12 +41,12 @@ cluster_start(){
         --contracts-console  --max-transaction-time 1000 --genesis-timestamp $now > node2.log &
 
     echo "tail -f node1.log"
-    tail -f node1.log
+#    tail -f node1.log
 }
 
 
 cluster_down(){
-    $eosio_launcher -k 15
+    echo
 #    killall nodeos
 #    echo stop--
 }

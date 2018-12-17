@@ -26,8 +26,9 @@ action_test(){
 action_withdrawtest_test(){
     cleos push action ${contract_acnt}  withdrawtest '["BTC",1]' -p ${contract_acnt}
 
+    cleos push action ${contract_acnt}  withdraw '["women","dizhi", "100.000 BTC", "memo"]' -p ${contract_acnt}
 
-    cleos get table ${contract_acnt} BTC rchrgaddr
+    cleos get table ${contract_acnt} BTC withdraws
 }
 
 
