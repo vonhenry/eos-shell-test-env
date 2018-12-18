@@ -85,11 +85,13 @@ rotate &
 
 send_trxs(){
     cleos=cleos1 && if [ "$1" == "c2" ];then cleos=cleos2 ;fi
-    for i in `seq 100 999`;do ${!cleos} transfer firstaccount ${contract_acnt} "0.0${i} EOS" -p firstaccount && sleep .1 ; done
+    for r in `seq 1000000`; do
+        for i in `seq 100 999`;do ${!cleos} transfer firstaccount ${contract_acnt} "0.0${i} EOS" -p firstaccount && sleep .1 ; done
+    done
 }
 
-send_trxs c1 &
-send_trxs c2 &
+send_trxs c1 >/dev/null 2>&1 &
+send_trxs c2 >/dev/null 2>&1 &
 
 
 
