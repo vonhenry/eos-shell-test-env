@@ -1,14 +1,10 @@
 #!/bin/bash
 
-. ./init.sh
-. ./config.sh
+. init.sh
+. config.sh
 
 cluster_init(){
     cluster_clear
-
-#    rm -rf staging
-#    rm -rf etc/eosio/node_*
-#    rm -rf var/lib
 
     cName=config.ini
     lName=logging.json
@@ -33,7 +29,7 @@ cluster_init(){
 
 pnodes=1
 total_nodes=25
-delay=1
+delay=0
 
 cluster_dump(){
     $eosio_launcher -p $pnodes -n $total_nodes --nogen -o topology
@@ -55,6 +51,7 @@ cluster_start(){
 
     for i in `seq -w 00 24`; do
         echo -- check node $i --
+        sleep .2
         b5id=`$cleos -u http://127.0.0.1:88${i} get block 5 | grep "^ *\"id\""`
         if [ "$b5idbios" != "$b5id" ]; then
             echo FAILURE: nodes are not in sync
@@ -72,19 +69,17 @@ cluster_start(){
 
 cluster_down(){
     $eosio_launcher -k 15
-#    killall nodeos
-#    echo stop--
 }
 
 
 cluster_bounce(){
-
     echo
 }
 
 cluster_clear(){
-    killall nodeos 2>/dev/null
-    rm *.json *.dot *.ini topology* 2>/dev/null
+    $eosio_launcher -k 15 2>/dev/null
+#    killall nodeos 2>/dev/null
+    rm *.json *.dot *.ini *.log topology* 2>/dev/null
     rm -rf staging
     rm -rf etc/eosio/node_*
     rm -rf var/lib

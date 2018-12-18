@@ -15,7 +15,7 @@ cluster_init(){
         mkdir -p $path
         r=configbios$i && echo "${!r}"  > $path/$cName
         echo "$config_common" >>  $path/$cName
-#        echo "$loggingbios" > $path/$lName
+        echo "$logging"     > $path/$lName
         echo "$genesis"     > $path/$gName
     done
 }
@@ -47,13 +47,10 @@ cluster_start(){
 
 cluster_down(){
     echo
-#    killall nodeos
-#    echo stop--
 }
 
 
 cluster_bounce(){
-
     echo
 }
 

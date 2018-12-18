@@ -67,12 +67,13 @@ action_test(){
 }
 
 action_setglobal_test(){
-    echo
+        cleos push action  ${contract_acnt} setglobal '[{"lib_depth":100}]' -p ${contract_acnt}
 }
 
 action_sectionadd_test(){
     cleos push action ${contract_acnt}  sectionadd "[1,11,111]"  -p ${contract_acnt}
     cleos get table  ${contract_acnt}  ${contract_acnt} rmtlcltrxs
+    cleos get table  ${contract_acnt}  ${contract_acnt} sections
 }
 
 action_chaininit_test(){
