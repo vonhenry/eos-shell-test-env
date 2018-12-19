@@ -19,4 +19,10 @@ cd ./clusters-ibc
 cd ./clusters-ibc
 . task_ibc_test.sh
 
+
+
+# clear shell backgroud processes and log files
+cd ./clusters-ibc
+. clear.sh
+
 ```
