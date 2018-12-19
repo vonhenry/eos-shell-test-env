@@ -86,16 +86,14 @@ send_trxs_c1(){
         for ii in `seq 100 999`;do ${!cleos} transfer firstaccount ${contract_acnt} "0.0${ii} EOS" -p firstaccount && sleep .3 ; done
     done
 }
-echo -------- start cluster one trxs  ------------
-send_trxs_c1 >/dev/null 2>&1 &
+# send_trxs_c1 >/dev/null 2>&1
 
 send_trxs_c2(){
     for ss in `seq 1000000`; do
         for jj in `seq 100 999`;do ${!cleos} transfer firstaccount ${contract_acnt} "0.0${jj} EOS" -p firstaccount && sleep .3 ; done
     done
 }
-echo -------- start cluster two trxs  ------------
-send_trxs_c2 >/dev/null 2>&1 &
+# send_trxs_c2 >/dev/null 2>&1
 
 
 

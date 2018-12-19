@@ -45,6 +45,8 @@ EOF
 
 read -d '' config_common << EOF
 enable-stale-production = true
+ibc-max-nodes-per-host = 50
+ibc-max-clients = 0
 p2p-peer-address = localhost:9976
 plugin = eosio::chain_api_plugin
 plugin = eosio::producer_plugin
