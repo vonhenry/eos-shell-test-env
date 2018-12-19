@@ -2,7 +2,7 @@
 
 base_dir=/Code/github.com
 
-repo_dir=${base_dir}/vchengsong/eos
+repo_dir=${base_dir}/vonhenry/eos
 #repo_dir=${base_dir}/boscore/bos
 
 build=build
