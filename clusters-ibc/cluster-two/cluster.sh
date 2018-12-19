@@ -13,7 +13,7 @@ cluster_init(){
     path=staging/etc/eosio/node_bios
     mkdir -p $path
     echo "$configbios"  > $path/$cName
-    echo "$loggingbios" > $path/$lName
+    echo "$logging" > $path/$lName
     echo "$genesis"     > $path/$gName
 
     for i in `seq -w 00 25`; do
@@ -21,10 +21,9 @@ cluster_init(){
         mkdir -p $path
         c=config$i  && echo "${!c}" > $path/$cName
         echo "$config_common" >>  $path/$cName
-        l=logging00 && echo "${!l}" > $path/$lName
+        l=logging && echo "${!l}" > $path/$lName
         echo "$genesis" > $path/$gName
     done
-
 }
 
 pnodes=1
@@ -78,7 +77,6 @@ cluster_bounce(){
 
 cluster_clear(){
     $eosio_launcher -k 15 2>/dev/null
-#    killall nodeos 2>/dev/null
     rm *.json *.dot *.ini *.log topology* 2>/dev/null
     rm -rf staging
     rm -rf etc/eosio/node_*

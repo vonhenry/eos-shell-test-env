@@ -56,6 +56,14 @@ http-server-address = 127.0.0.1:8900
 p2p-listen-endpoint = 0.0.0.0:9900
 producer-name = producer211a
 signature-provider = EOS7p8HMkhKw5Doncn7GMu9yRhGkHqxtXFMEaXCeJTGQ87DxztSdR=KEY:5JiifZVHiyUHtA51RReAh3fDzCQVQPtEku7y3aEUC4u6MUr83fx
+
+plugin = eosio::ibc::ibc_plugin
+ibc-contract = eos222333ibc
+ibc-listen-endpoint = 0.0.0.0:6201
+ibc-peer-address = 127.0.0.1:6101
+ibc-peer-address = 127.0.0.1:6102
+ibc-peer-address = 127.0.0.1:6103
+ibc-sidechain-id = c10076f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906
 EOF
 
 read -d '' config01 << EOF
@@ -63,6 +71,14 @@ http-server-address = 127.0.0.1:8901
 p2p-listen-endpoint = 0.0.0.0:9901
 producer-name = producer211b
 signature-provider = EOS7bvJku6JZdbVxLfg9q7LEmqnyTexMTrYJteUoBCHDbF36Ux44s=KEY:5JYA6oj1HAw1xaT31ZR3m9Vzn7UQNaMdG9LRgNfEewrdVAR2z6C
+
+plugin = eosio::ibc::ibc_plugin
+ibc-contract = eos222333ibc
+ibc-listen-endpoint = 0.0.0.0:6202
+ibc-peer-address = 127.0.0.1:6101
+ibc-peer-address = 127.0.0.1:6102
+ibc-peer-address = 127.0.0.1:6103
+ibc-sidechain-id = c10076f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906
 EOF
 
 read -d '' config02 << EOF
@@ -70,6 +86,14 @@ http-server-address = 127.0.0.1:8902
 p2p-listen-endpoint = 0.0.0.0:9902
 producer-name = producer211c
 signature-provider = EOS6dnV9KGX5zLa6EJS3fRFG1sBqvLCr45UkiJxxG3CxVRBRE2Hjd=KEY:5JL4zsc2CwHDkRCqYDCAVx7Ad7JtuhirbbPA61essr5iMyrjtnd
+
+plugin = eosio::ibc::ibc_plugin
+ibc-contract = eos222333ibc
+ibc-listen-endpoint = 0.0.0.0:6203
+ibc-peer-address = 127.0.0.1:6101
+ibc-peer-address = 127.0.0.1:6102
+ibc-peer-address = 127.0.0.1:6103
+ibc-sidechain-id = c10076f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906
 EOF
 
 read -d '' config03 << EOF
@@ -399,9 +423,7 @@ EOF
 
 
 
-
-
-read -d '' loggingbios << EOF
+read -d '' logging << EOF
 {
   "includes": [],
   "appenders": [{
@@ -452,115 +474,7 @@ read -d '' loggingbios << EOF
       ]
     },
     {
-      "name": "net_plugin_impl",
-      "level": "debug",
-      "enabled": true,
-      "additivity": false,
-      "appenders": [
-        "stderr"
-      ]
-    }
-  ]
-}
-EOF
-
-read -d '' logging00 << EOF
-{
-  "includes": [],
-  "appenders": [{
-      "name": "stderr",
-      "type": "console",
-      "args": {
-        "stream": "std_error",
-        "level_colors": [{
-            "level": "debug",
-            "color": "green"
-          },{
-            "level": "warn",
-            "color": "brown"
-          },{
-            "level": "error",
-            "color": "red"
-          }
-        ]
-      },
-      "enabled": true
-    },{
-      "name": "stdout",
-      "type": "console",
-      "args": {
-        "stream": "std_out",
-        "level_colors": [{
-            "level": "debug",
-            "color": "green"
-          },{
-            "level": "warn",
-            "color": "brown"
-          },{
-            "level": "error",
-            "color": "red"
-          }
-        ]
-      },
-      "enabled": true
-    }
-  ],
-  "loggers": [{
-      "name": "default",
-      "level": "debug",
-      "enabled": true,
-      "additivity": false,
-      "appenders": [
-        "stderr"
-      ]
-    }
-  ]
-}
-EOF
-
-read -d '' logging01 << EOF
-{
-  "includes": [],
-  "appenders": [{
-      "name": "stderr",
-      "type": "console",
-      "args": {
-        "stream": "std_error",
-        "level_colors": [{
-            "level": "debug",
-            "color": "green"
-          },{
-            "level": "warn",
-            "color": "brown"
-          },{
-            "level": "error",
-            "color": "red"
-          }
-        ]
-      },
-      "enabled": true
-    },{
-      "name": "stdout",
-      "type": "console",
-      "args": {
-        "stream": "std_out",
-        "level_colors": [{
-            "level": "debug",
-            "color": "green"
-          },{
-            "level": "warn",
-            "color": "brown"
-          },{
-            "level": "error",
-            "color": "red"
-          }
-        ]
-      },
-      "enabled": true
-    }
-  ],
-  "loggers": [{
-      "name": "default",
+      "name": "ibc_plugin_impl",
       "level": "debug",
       "enabled": true,
       "additivity": false,
