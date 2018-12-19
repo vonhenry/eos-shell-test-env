@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
-. ./init_system_contracts.sh
+repo=vonhenry/eosio.contracts
+#repo=boscore/bos.contracts
 
-. ./task_ibc_test.sh
+CONTRACTS_DIR=/Code/github.com/${repo}/build
+WALLET_DIR=/Users/song/tmp/eosio/eosio-wallet
 
+cleos1='cleos -u http://127.0.0.1:8888'
+cleos2='cleos -u http://127.0.0.1:8889'
 
-
+contract_acnt=eos222333ibc
+contract_folder=ibc
 
 
 

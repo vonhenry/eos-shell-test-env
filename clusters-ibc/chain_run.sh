@@ -2,8 +2,6 @@
 
 . ./init_system_contracts.sh
 
-contract_acnt=eos222333ibc
-
 create_some_account(){
     cleos=cleos1 && if [ "$1" == "c2" ];then cleos=cleos2 ;fi
 
@@ -80,18 +78,24 @@ rotate(){
         $cleos2 system voteproducer prods eosvoterbig1 ${!schedule}
     done
 }
-
+echo -------- start rotate producer schedules ------------
 rotate &
 
-send_trxs(){
-    cleos=cleos1 && if [ "$1" == "c2" ];then cleos=cleos2 ;fi
-    for r in `seq 1000000`; do
-        for i in `seq 100 999`;do ${!cleos} transfer firstaccount ${contract_acnt} "0.0${i} EOS" -p firstaccount && sleep .1 ; done
+send_trxs_c1(){
+    for rr in `seq 1000000`; do
+        for ii in `seq 100 999`;do ${!cleos} transfer firstaccount ${contract_acnt} "0.0${ii} EOS" -p firstaccount && sleep .3 ; done
     done
 }
+echo -------- start cluster one trxs  ------------
+send_trxs_c1 >/dev/null 2>&1 &
 
-send_trxs c1 >/dev/null 2>&1 &
-send_trxs c2 >/dev/null 2>&1 &
+send_trxs_c2(){
+    for ss in `seq 1000000`; do
+        for jj in `seq 100 999`;do ${!cleos} transfer firstaccount ${contract_acnt} "0.0${jj} EOS" -p firstaccount && sleep .3 ; done
+    done
+}
+echo -------- start cluster two trxs  ------------
+send_trxs_c2 >/dev/null 2>&1 &
 
 
 

@@ -1,11 +1,6 @@
 #!/bin/bash
 
-repo=vonhenry/eosio.contracts
-#repo=boscore/bos.contracts
-
-CONTRACTS_DIR=/Code/github.com/${repo}/build
-
-WALLET_DIR=/Users/song/tmp/eosio/eosio-wallet
+. ./env.sh
 
 start_keosd(){
     killall keosd 2>/dev/null
@@ -37,6 +32,3 @@ import_key(){
 #    new_keys && cleos create account eosio $1 $pub_key -p eosio && import_key ${pri_key}
 #}
 
-
-cleos1='cleos -u http://127.0.0.1:8888'
-cleos2='cleos -u http://127.0.0.1:8889'
