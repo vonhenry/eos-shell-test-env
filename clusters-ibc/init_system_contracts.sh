@@ -9,7 +9,7 @@ setup_system_contracts_and_issue_token(){
     ${!cleos} set contract eosio ${CONTRACTS_DIR}/eosio.bios -p eosio
 
     # step 2: create system accounts
-    sleep .3
+    sleep .5
     for account in eosio.aaa \
                    eosio.bpay eosio.msig eosio.names eosio.ram eosio.ramfee \
                    eosio.saving eosio.stake eosio.token eosio.vpay \
@@ -34,6 +34,7 @@ setup_system_contracts_and_issue_token(){
     ${!cleos} push action eosio setpriv '{"account": "eosio.msig", "is_priv": 1}' -p eosio
 
     # step 6: set contract eosio.system
+    sleep .5
     ${!cleos} set contract eosio ${CONTRACTS_DIR}/eosio.system -x 1000 -p eosio
     ${!cleos} push action eosio init '[0, "4,EOS"]' -p eosio
 

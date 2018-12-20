@@ -66,6 +66,7 @@ ibc-peer-address = 127.0.0.1:6201
 ibc-peer-address = 127.0.0.1:6202
 ibc-peer-address = 127.0.0.1:6203
 ibc-sidechain-id = c20076f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906
+#ibc-peer-private-key = [EOS67ZiLNxJ4tozUeBsgXrMXRAx3BwEEZ1jmfMoG9tnjkiLAt5a1L,5K9s8mu3yXLfEDJQSVN1fYHPzyNBBvQ3MPgeRvK2jvG4KwjW3yu]
 EOF
 
 read -d '' config01 << EOF
@@ -81,6 +82,7 @@ ibc-peer-address = 127.0.0.1:6201
 ibc-peer-address = 127.0.0.1:6202
 ibc-peer-address = 127.0.0.1:6203
 ibc-sidechain-id = c20076f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906
+#ibc-peer-private-key = [EOS67ZiLNxJ4tozUeBsgXrMXRAx3BwEEZ1jmfMoG9tnjkiLAt5a1L,5K9s8mu3yXLfEDJQSVN1fYHPzyNBBvQ3MPgeRvK2jvG4KwjW3yu]
 EOF
 
 read -d '' config02 << EOF
@@ -96,6 +98,7 @@ ibc-peer-address = 127.0.0.1:6201
 ibc-peer-address = 127.0.0.1:6202
 ibc-peer-address = 127.0.0.1:6203
 ibc-sidechain-id = c20076f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906
+#ibc-peer-private-key = [EOS67ZiLNxJ4tozUeBsgXrMXRAx3BwEEZ1jmfMoG9tnjkiLAt5a1L,5K9s8mu3yXLfEDJQSVN1fYHPzyNBBvQ3MPgeRvK2jvG4KwjW3yu]
 EOF
 
 read -d '' config03 << EOF

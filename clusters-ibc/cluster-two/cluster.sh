@@ -50,7 +50,7 @@ cluster_start(){
 
     for i in `seq -w 00 24`; do
         echo -- check node $i --
-        sleep .2
+        sleep .3
         b5id=`$cleos -u http://127.0.0.1:88${i} get block 5 | grep "^ *\"id\""`
         if [ "$b5idbios" != "$b5id" ]; then
             echo FAILURE: nodes are not in sync
