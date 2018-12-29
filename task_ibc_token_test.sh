@@ -26,6 +26,11 @@ action_test(){
 
 
 action_transfer_test(){
+
+    cleos push action eoscontract1 test '["eos222333ibc",1]' -p eoscontract1
+
+
+
     cleos transfer eosio eoscontract1 "1.0000 EOS" memo
 
     cleos get table eos222333ibc eos222333ibc ibctrxs
