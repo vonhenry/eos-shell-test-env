@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ./env.sh
+. env.sh
 
 start_keosd(){
     killall keosd 2>/dev/null

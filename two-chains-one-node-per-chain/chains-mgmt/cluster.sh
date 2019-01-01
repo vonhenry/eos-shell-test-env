@@ -1,7 +1,7 @@
 #!/bin/bash
 
-. ./init.sh
-. ./config.sh
+. init.sh
+. config.sh
 
 cluster_init(){
     cluster_clear
@@ -31,10 +31,10 @@ cluster_start(){
         --plugin eosio::producer_api_plugin --plugin eosio::history_api_plugin  \
         --contracts-console  --max-transaction-time 1000 --genesis-timestamp $now > node1.log &
 
-    tail -f node1.log
-    return
+#    tail -f node1.log
+#    return
 
-    sleep 1.2
+#    sleep 1.2
     echo "starting node 2"
     node2data=var/lib/node_bios2/
     node2conf=staging/etc/eosio/node_bios2

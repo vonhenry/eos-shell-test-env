@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
-. ./init_system_contracts.sh
+contract_repo_dir=vonhenry/eosio.contracts
+#contract_repo_dir=boscore/bos.contracts
 
-. ./task_ibc_token_test.sh
+CONTRACTS_DIR=/Code/github.com/${contract_repo_dir}/build
+WALLET_DIR=/Users/song/tmp/eosio/eosio-wallet
 
-
+cleos1='cleos -u http://127.0.0.1:8888'
+cleos2='cleos -u http://127.0.0.1:8889'
 
 
 

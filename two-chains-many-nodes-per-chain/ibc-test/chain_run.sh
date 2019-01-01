@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-. ./init_system_contracts.sh
+. init_system_contracts.sh
 
 create_some_account(){
     cleos=cleos1 && if [ "$1" == "c2" ];then cleos=cleos2 ;fi
@@ -20,7 +20,7 @@ create_some_account(){
 create_some_account c1
 create_some_account c2
 
-. ./cluster-one/bp_keys.sh
+. ../cluster-one/bp_keys.sh
 
 create_register_producers(){
     cleos=cleos1 && base=1 && if [ "$1" == "c2" ];then cleos=cleos2 && base=2;fi

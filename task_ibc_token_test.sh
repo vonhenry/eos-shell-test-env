@@ -2,22 +2,39 @@
 
 . ./task_ibc_test.sh
 
-contract_acnt=eoscontract1
-contract_folder=ibc.token
-
-echo  -------------------- IBC TOKEN TEST ------------------------
+contract_token=ibc2token555
+contract_token_folder=ibc.token
 
 create_some_account(){
-    create_one ${contract_acnt}
-    cleos set account permission ${contract_acnt} active '{"threshold": 1, "keys":[{"key":"'${pub_key}'", "weight":1}], "accounts":[{"permission":{"actor":"'${contract_acnt}'","permission":"eosio.code"},"weight":1}], "waits":[] }' owner -p ${contract_acnt}
+    create_one ${contract_token}
+    cleos set account permission ${contract_token} active '{"threshold": 1, "keys":[{"key":"'${pub_key}'", "weight":1}], "accounts":[{"permission":{"actor":"'${contract_token}'","permission":"eosio.code"},"weight":1}], "waits":[] }' owner -p ${contract_token}
     for i in 1 2 3; do create_one eosaccount2${i}; done
 }
 create_some_account
 
-set_contract(){
-    cleos set contract ${contract_acnt} ${CONTRACTS_DIR}/${contract_folder} -x 1000 -p ${contract_acnt}
+set_and_init_contract(){
+    cleos set contract ${contract_token} ${CONTRACTS_DIR}/${contract_token_folder} -x 1000 -p ${contract_token}
+
+    cleos push action ${contract_token} setglobal '["ibc2chain555","ibc2token555",1000,1000,10,false]' -p ${contract_token}
 }
-set_contract
+set_and_init_contract
+
+
+
+params
+echo  -------------------- IBC TOKEN TEST ------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 
 action_test(){
 #    action_ps_test
@@ -27,7 +44,7 @@ action_test(){
 
 action_transfer_test(){
 
-    cleos push action eoscontract1 test '["eos222333ibc",1]' -p eoscontract1
+    cleos push action ${contract_token}  test '["eos222333ibc",1]' -p ${contract_token}
 
 
 

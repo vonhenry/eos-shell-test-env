@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-. ./env.sh
+. env.sh
 
 echo  -------------------- IBC TEST ------------------------
 
