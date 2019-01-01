@@ -15,7 +15,7 @@ cluster_init(){
         mkdir -p $path
         r=configbios$i && echo "${!r}"  > $path/$cName
         echo "$config_common" >>  $path/$cName
-        echo "$logging"     > $path/$lName
+        echo "$logging_v"     > $path/$lName
         echo "$genesis"     > $path/$gName
     done
 }
@@ -63,6 +63,8 @@ cluster_clear(){
     rm -rf staging
     rm -rf etc/eosio/node_*
     rm -rf var/lib
+
+    cd ./../ibc-test/ && ./clear.sh 2>/dev/null && cd - >/dev/null
 }
 
 

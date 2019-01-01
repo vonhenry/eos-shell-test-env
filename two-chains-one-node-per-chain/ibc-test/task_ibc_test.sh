@@ -24,7 +24,7 @@ init_contracts(){
     ${!cleos}  push action  ${contract_chain} setglobal '[{"lib_depth":100}]' -p ${contract_chain}
     #cleos get table ${contract_chain} ${contract_chain} global
 
-    ${!cleos} push action ${contract_token} setglobal '["ibc2chain555","ibc2token555",1000,1000,10,false]' -p ${contract_token}
+    ${!cleos} push action ${contract_token} setglobal '["ibc2chain555","ibc2token555",1000,1000,10,true]' -p ${contract_token}
     #cleos get table ${contract_token} ${contract_token} globals
 
 }
