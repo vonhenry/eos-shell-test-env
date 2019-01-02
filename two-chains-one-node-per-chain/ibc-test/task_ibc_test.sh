@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 . env.sh
+#. chains_init.sh
 
 contract_chain=ibc2chain555
 contract_chain_folder=ibc.chain
@@ -21,7 +22,8 @@ set_contracts c2
 
 init_contracts(){
     cleos=cleos1 && if [ "$1" == "c2" ];then cleos=cleos2 ;fi
-    ${!cleos}  push action  ${contract_chain} setglobal '[{"lib_depth":100}]' -p ${contract_chain}
+    ${!cleos}  push action  ${contract_chain} setglobal '[{"lib_depth":200}]' -p ${contract_chain}
+    ${!cleos}  push action  ${contract_chain} relay '["add","ibc2relay555"]' -p ${contract_chain}
     #cleos get table ${contract_chain} ${contract_chain} global
 
     ${!cleos} push action ${contract_token} setglobal '["ibc2chain555","ibc2token555",1000,1000,10,true]' -p ${contract_token}
@@ -30,6 +32,37 @@ init_contracts(){
 }
 init_contracts c1
 init_contracts c2
+
+
+
+
+test(){
+    $cleos1 get table ${contract_chain} ${contract_chain} sections # prodsches chaindb
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -67,7 +67,7 @@ create_one(){
     import_key $pri_key
 }
 
-create_account(){
+create_account_by_pub_key(){
     cleos=cleos1 && if [ "$1" == "c2" ];then cleos=cleos2 ;fi
     name=$2
     pub_key=$3

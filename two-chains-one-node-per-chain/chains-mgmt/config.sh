@@ -49,7 +49,7 @@ http-server-address = 127.0.0.1:8888
 p2p-listen-endpoint = 0.0.0.0:9876
 
 ibc-listen-endpoint = 0.0.0.0:6001
-ibc-peer-address = 127.0.0.1:6002
+#ibc-peer-address = 127.0.0.1:6002
 
 producer-name = eosio
 signature-provider = EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV=KEY:5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3

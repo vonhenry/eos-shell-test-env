@@ -12,13 +12,17 @@ contract_chain_folder=ibc.chain
 contract_token=ibc2token555
 contract_token_folder=ibc.token
 
-create_some_account(){
+new_account(){
     cleos=cleos1 && if [ "$1" == "c2" ];then cleos=cleos2 ;fi
-    create_one $1 ${contract_chain}
-    create_one $1 ${contract_token}
+    create_one $1 $2
 }
-create_some_account c1
-create_some_account c2
+new_account c1 ${contract_chain}
+new_account c1 ${contract_token}
+new_account c2 ${contract_chain}
+new_account c2 ${contract_token}
+
+create_account_by_pub_key c1 ibc2relay555 EOS5jLHvXsFPvUAawjc6qodxUbkBjWcU1j6GUghsNvsGPRdFV5ZWi
+create_account_by_pub_key c2 ibc2relay555 EOS5jLHvXsFPvUAawjc6qodxUbkBjWcU1j6GUghsNvsGPRdFV5ZWi
 
 
 
