@@ -12,6 +12,11 @@ cleos2='cleos -u http://127.0.0.1:8889'
 
 
 
+contract_chain=ibc2chain555
+contract_chain_folder=ibc.chain
+
+contract_token=ibc2token555
+contract_token_folder=ibc.token
 
 
 

@@ -3,11 +3,6 @@
 . env.sh
 #. chains_init.sh
 
-contract_chain=ibc2chain555
-contract_chain_folder=ibc.chain
-
-contract_token=ibc2token555
-contract_token_folder=ibc.token
 
 
 set_contracts(){
@@ -22,11 +17,27 @@ set_contracts c2
 
 init_contracts(){
     cleos=cleos1 && if [ "$1" == "c2" ];then cleos=cleos2 ;fi
-    ${!cleos}  push action  ${contract_chain} setglobal '[{"lib_depth":200}]' -p ${contract_chain}
+
+    # --- ibc.chain ---
+    ${!cleos}  push action  ${contract_chain} setglobal '[{"lib_depth":50}]' -p ${contract_chain}
     ${!cleos}  push action  ${contract_chain} relay '["add","ibc2relay555"]' -p ${contract_chain}
     #cleos get table ${contract_chain} ${contract_chain} global
 
+    # --- ibc.token ---
     ${!cleos} push action ${contract_token} setglobal '["ibc2chain555","ibc2token555",1000,1000,10,true]' -p ${contract_token}
+
+    ${!cleos} push action ${contract_token} regacpttoken \
+    '["eosio.token","1000000000.0000 EOS","ibc2token555","1.0000 EOS","100.0000 EOS",
+    "1000.0000 EOS",100,"org","websit","fixed","0.0100 EOS",0.01,true,"4,EOS"]' -p ${contract_token}
+
+
+
+    ${!cleos} push action ${contract_token} regpegtoken \
+    '["1000000000.0000 EOS","1.0000 EOS","100.0000 EOS","1000.0000 EOS",100,
+    "ibc2token555","eosio.token","4,EOS",true]' -p ${contract_token}
+
+
+
     #cleos get table ${contract_token} ${contract_token} globals
 
 }
@@ -45,7 +56,10 @@ test(){
 
 
 
-
+transfer(){
+    $cleos1 transfer firstaccount ibc2token555 "1.0000 EOS" "ibc receiver=chengsong111" -p firstaccount
+    $cleos2 transfer firstaccount ibc2token555 "1.0000 EOS" "ibc receiver=chengsong111" -p firstaccount
+}
 
 
 
