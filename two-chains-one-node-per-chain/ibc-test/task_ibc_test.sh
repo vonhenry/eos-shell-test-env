@@ -61,8 +61,20 @@ transfer(){
     $cleos2 transfer firstaccount ibc2token555 "1.0000 EOS" "ibc receiver=chengsong111" -p firstaccount
 }
 
+get_balance(){
+    $cleos1 get table ${contract_token} chengsong111 accounts
+
+    for i in `seq 1000`; do transfer && sleep .5 ; done
+
+}
 
 
+
+
+withdraw(){
+    $cleos1 push action ibc2token555 transfer '["chengsong111","ibc2token555","2.5000 EOS","ibc receiver=chengsong333"]' -p chengsong111
+    $cleos2 push action ibc2token555 transfer '["chengsong111","ibc2token555","2.5000 EOS","ibc receiver=chengsong333"]' -p chengsong111
+}
 
 
 

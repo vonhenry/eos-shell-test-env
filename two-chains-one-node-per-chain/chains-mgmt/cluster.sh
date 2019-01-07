@@ -31,10 +31,11 @@ cluster_start(){
         --plugin eosio::producer_api_plugin --plugin eosio::history_api_plugin  \
         --contracts-console  --max-transaction-time 1000 --genesis-timestamp $now > node1.log &
 
-#    tail -f node1.log
-#    return
+#    nohup ./programs/nodeos/nodeos -e -p eosio -d $node1data --config-dir $node1conf  \
+#        --plugin eosio::chain_api_plugin --plugin eosio::producer_plugin  \
+#        --plugin eosio::producer_api_plugin --contracts-console  --max-transaction-time 300   --genesis-timestamp $now \
+#        --chain-state-db-size-mb 2048 --chain-state-db-guard-size-mb 512 --reversible-blocks-db-size-mb 512 --reversible-blocks-db-guard-size-mb 20  > node1.log &
 
-#    sleep 1.2
     echo "starting node 2"
     node2data=var/lib/node_bios2/
     node2conf=staging/etc/eosio/node_bios2
@@ -43,8 +44,13 @@ cluster_start(){
         --plugin eosio::producer_api_plugin --plugin eosio::history_api_plugin  \
         --contracts-console  --max-transaction-time 1000 --genesis-timestamp $now > node2.log &
 
+#    nohup ./programs/nodeos/nodeos -e -p eosio -d $node2data --config-dir $node2conf  \
+#        --plugin eosio::chain_api_plugin --plugin eosio::producer_plugin  \
+#        --plugin eosio::producer_api_plugin --contracts-console  --max-transaction-time 300 --genesis-timestamp $now \
+#        --chain-state-db-size-mb 2048 --chain-state-db-guard-size-mb 512 --reversible-blocks-db-size-mb 512 --reversible-blocks-db-guard-size-mb 20 > node2.log &
+#
     echo "tail -f node1.log"
-#    tail -f node1.log
+
 }
 
 
